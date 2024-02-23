@@ -10,7 +10,7 @@ build.xml의 동작 과정에 관해 이해하기 위해 이전에 했던 MyBati
 <project name="ShellScriptBuilder" default="buildShellScript">
 
     <property name="jar.dir" value="libs"/>
-    <property name="jdbc.url" value="jdbc:mysql://192.168.1.98:3306/exampledb"/>
+    <property name="jdbc.url" value="jdbc:mysql://*.*.*.*:3306/exampledb"/>
     <property name="jdbc.user" value="user2"/>
     <property name="jdbc.password" value="Dkfvk!@234"/>
 
@@ -41,11 +41,11 @@ build.xml의 동작 과정에 관해 이해하기 위해 이전에 했던 MyBati
             echo "DAEMON_CLASSPATH :: "$DAEMON_CLASSPATH
 
             # SQL queries
-            echo 'SELECT * FROM users;' | mysql -h 192.168.1.98 -P 3306 -u user2 -pDkfvk!@234 exampledb
-            echo 'select xdb_enc("normal", "123123123123");' | mysql -h 192.168.1.98 -P 3306 -u user2 -pDkfvk!@234 exampledb
-            echo 'select xdb_dec("normal", "AAERAAQVd0qL31mTUi9F5p2ybZS5f+3seIk=");' | mysql -h 192.168.1.98 -P 3306 -u user2 -pDkfvk!@234 exampledb
-            echo 'select asg_enc("blue", "123123123123");' | mysql -h 192.168.1.98 -P 3306 -u user2 -pDkfvk!@234 exampledb
-            echo 'select asg_dec("blue", "HzECAAAAAgFBU0cDAQMQAo6tey/55W7uso76JuDwRn8=");' | mysql -h 192.168.1.98 -P 3306 -u user2 -pDkfvk!@234 exampledb
+            echo 'SELECT * FROM users;' | mysql -h *.*.*.* -P 3306 -u user2 -ppassword exampledb
+            echo 'select xdb_enc("normal", "123123123123");' | mysql -h *.*.*.* -P 3306 -u user2 -p password exampledb
+            echo 'select xdb_dec("normal", "AAERAAQVd0qL31mTUi9F5p2ybZS5f+3seIk=");' | mysql -h *.*.*.* -P 3306 -u user2 -p password exampledb
+            echo 'select asg_enc("blue", "123123123123");' | mysql -h *.*.*.* -P 3306 -u user2 -p password exampledb
+            echo 'select asg_dec("blue", "HzECAAAAAgFBU0cDAQMQAo6tey/55W7uso76JuDwRn8=");' | mysql -h *.*.*.* -P 3306 -u user2 -p password exampledb
 
             # Changing permission
             chmod 755 example_script.sh
